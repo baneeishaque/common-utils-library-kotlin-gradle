@@ -31,10 +31,7 @@ Based on a comprehensive analysis of this repository, the following topics are r
 ### CI/CD Topics
 | Topic | Reason |
 |-------|--------|
-| `github-actions` | Uses GitHub Actions for CI |
-| `travis-ci` | Has Travis CI configuration |
-| `azure-pipelines` | Has Azure Pipelines configuration |
-| `jenkins` | Has Jenkinsfile |
+| `github-actions` | Uses GitHub Actions for CI (primary CI/CD) |
 
 ### Development Environment Topics
 | Topic | Reason |
@@ -46,8 +43,6 @@ Based on a comprehensive analysis of this repository, the following topics are r
 | Topic | Reason |
 |-------|--------|
 | `library` | This is a reusable library |
-| `utilities` | Provides utility functions |
-| `helper-functions` | Contains helper/utility functions |
 
 ## Complete List of Recommended Topics
 
