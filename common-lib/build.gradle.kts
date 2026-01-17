@@ -39,7 +39,7 @@ dependencies {
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
 
     implementation(dependencyNotation = "io.ktor:ktor-client-logging:$ktorVersion")
-    implementation(dependencyNotation = "ch.qos.logback:logback-classic:1.5.23")
+    implementation(dependencyNotation = "ch.qos.logback:logback-classic:1.5.25")
 
     implementation(dependencyNotation = "io.ktor:ktor-client-auth:$ktorVersion")
 
