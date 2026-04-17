@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.4.20-jupiter-349"
+kotlin = "2.4.20-tethys-25"
 ktor = "3.4.2"
 
 [libraries]
