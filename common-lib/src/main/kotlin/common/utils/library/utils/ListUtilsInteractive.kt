@@ -22,7 +22,7 @@ object ListUtilsInteractive {
         } else {
 
             println("Invalid $itemSpecification Index, Try again ? (Y/N) : ")
-            return when (readlnOrNull()) {
+            return when (ConsoleInputUtils.readlnOrNull()) {
 
                 "Y", "" -> {
 
@@ -185,7 +185,7 @@ object ListUtilsInteractive {
         return getValidIndexWithOptionalBackValue(
 
             inclusionCheckFunction = inclusionCheckFunction,
-            inputForIndex = readln(),
+            inputForIndex = ConsoleInputUtils.readln(),
             itemSpecification = itemSpecification,
             items = items,
             isCollection = isCollection,

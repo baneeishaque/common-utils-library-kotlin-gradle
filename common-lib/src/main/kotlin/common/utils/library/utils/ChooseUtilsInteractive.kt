@@ -2,7 +2,6 @@ package common.utils.library.utils
 
 import common.utils.library.models.ChooseByIdResult
 import common.utils.library.models.FailureWithoutExplanationBasedOnIsOkModel
-import java.util.*
 
 object ChooseUtilsInteractive {
 
@@ -17,39 +16,34 @@ object ChooseUtilsInteractive {
 
     ): ChooseByIdResult<T> {
 
-        var idInput: UInt
-        val reader = Scanner(System.`in`)
-
         while (true) {
 
             print("Enter $prefixForPrompt$itemSpecification ID or 0 to Back : ")
 
-            try {
+            val idInput: UInt? = ConsoleInputUtils.readlnOrNull()?.trim()?.toUIntOrNull()
+            if (idInput == null) {
 
-                idInput = reader.nextInt().toUInt()
-                if (idInput == 0u) {
-
-                    return ChooseByIdResult(
-
-                        isOkWithData = FailureWithoutExplanationBasedOnIsOkModel()
-                    )
-                }
+                println("Invalid $itemSpecification ID...")
+                continue
+            }
+            if (idInput == 0u) {
 
                 return ChooseByIdResult(
 
-                    isOkWithData = ApiUtilsInteractiveCommon.makeApiRequestWithOptionalRetries(
-
-                        apiCallFunction = apiCallFunction,
-                        isConsoleMode = isConsoleMode,
-                        isDevelopmentMode = isDevelopmentMode
-                    ),
-                    id = idInput
+                    isOkWithData = FailureWithoutExplanationBasedOnIsOkModel()
                 )
-
-            } catch (exception: InputMismatchException) {
-
-                println("Invalid $itemSpecification ID...")
             }
+
+            return ChooseByIdResult(
+
+                isOkWithData = ApiUtilsInteractiveCommon.makeApiRequestWithOptionalRetries(
+
+                    apiCallFunction = apiCallFunction,
+                    isConsoleMode = isConsoleMode,
+                    isDevelopmentMode = isDevelopmentMode
+                ),
+                id = idInput
+            )
         }
     }
 }

@@ -35,7 +35,7 @@ object ApiUtilsInteractiveCommon {
             println("Error : ${(apiResponse.exceptionOrNull() as Exception).localizedMessage}")
             do {
                 print("Retry (Y/N) ? : ")
-                when (readln()) {
+                when (ConsoleInputUtils.readln()) {
                     "Y", "" -> {
 
                         return makeApiRequestWithOptionalRetries(

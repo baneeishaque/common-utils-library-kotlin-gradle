@@ -28,7 +28,7 @@ object InputUtilsInteractive {
             println(invalidMessage)
             return getValidFloat(
 
-                inputText = readln(),
+                inputText = ConsoleInputUtils.readln(),
                 invalidMessage = invalidMessage
             )
         }
@@ -52,7 +52,7 @@ object InputUtilsInteractive {
             print(constructInvalidMessage.invoke(inputText))
             return getValidFloat(
 
-                inputText = readln(),
+                inputText = ConsoleInputUtils.readln(),
                 constructInvalidMessage = constructInvalidMessage
             )
         }
@@ -73,7 +73,7 @@ object InputUtilsInteractive {
         print(message = invalidMessage)
         getValidUnsignedInt(
 
-            inputText = readln(),
+            inputText = ConsoleInputUtils.readln(),
             invalidMessage = invalidMessage
         )
     }
@@ -105,7 +105,7 @@ object InputUtilsInteractive {
                 print(message = "$invalidMessage Or $backIndicator to back : ")
                 getValidUnsignedIntOrBack(
 
-                    inputText = readln(),
+                    inputText = ConsoleInputUtils.readln(),
                     invalidMessage = invalidMessage,
                     backIndicator = backIndicator
                 )
@@ -125,7 +125,7 @@ object InputUtilsInteractive {
         print("Enter $dataSpecification ${if (dataIndex == null) "" else "($dataIndex) "} Or $backIndicator to back : ")
         return getValidUnsignedIntOrBack(
 
-            inputText = readln(),
+            inputText = ConsoleInputUtils.readln(),
             invalidMessage = "Please Enter Valid $dataSpecification",
             backIndicator = backIndicator
         )
@@ -151,7 +151,7 @@ object InputUtilsInteractive {
 
                 inputUInt = getValidUnsignedInt(
 
-                    inputText = readln(),
+                    inputText = ConsoleInputUtils.readln(),
                     invalidMessage = "Please Enter Valid Unsigned Integer"
                 ),
                 thresholdValue = thresholdValue,
@@ -167,7 +167,7 @@ object InputUtilsInteractive {
         print("Enter ${promptPrefix}Time (DD/MM/YYYY HH:MM:SS) : ")
         return try {
 
-            LocalDateTime.parse(readlnOrNull().toString(), DateTimeUtils.normalDateTimePattern)
+            LocalDateTime.parse(ConsoleInputUtils.readlnOrNull().toString(), DateTimeUtils.normalDateTimePattern)
                 .format(DateTimeUtils.normalDateTimePattern)
 
         } catch (e: DateTimeParseException) {
@@ -184,7 +184,7 @@ object InputUtilsInteractive {
         print("Enter ${promptPrefix}Date (DD/MM/YYYY) : ")
         return try {
 
-            LocalDate.parse(readlnOrNull().toString(), DateTimeUtils.normalDatePattern)
+            LocalDate.parse(ConsoleInputUtils.readlnOrNull().toString(), DateTimeUtils.normalDatePattern)
                 .format(DateTimeUtils.normalDatePattern)
 
         } catch (e: DateTimeParseException) {
@@ -201,7 +201,7 @@ object InputUtilsInteractive {
         print("Enter ${promptPrefix}Date (DD/MM/YYYY) : ")
         return try {
 
-            LocalDate.parse(readlnOrNull().toString(), DateTimeUtils.normalDatePattern)
+            LocalDate.parse(ConsoleInputUtils.readlnOrNull().toString(), DateTimeUtils.normalDatePattern)
 
         } catch (e: DateTimeParseException) {
 
@@ -222,7 +222,7 @@ object InputUtilsInteractive {
         var localData: T = data
         do {
             print("Please confirm $dataSpecification (Y/N or B for Back) -> $localData : ")
-            when (readlnOrNull().toString()) {
+            when (ConsoleInputUtils.readlnOrNull().toString()) {
 
                 "Y", "" -> {
                     break
