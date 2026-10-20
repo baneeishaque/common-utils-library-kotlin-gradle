@@ -33,7 +33,7 @@ dependencies {
     implementation(dependencyNotation = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.11.0")
 
     implementation(dependencyNotation = "io.github.cdimascio:dotenv-kotlin:6.5.1")
-    implementation(dependencyNotation = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
+    implementation(dependencyNotation = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.12.0")
 
     implementation(dependencyNotation = "io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
